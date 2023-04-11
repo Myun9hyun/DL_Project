@@ -197,7 +197,7 @@ if choice == "페이지1":
         import streamlit as st
         import torch
         from torchviz import make_dot
-        from torchvision.models import vgg19
+        from torchvision.models import vgg16
 
         # Define a function to visualize the computation graph
         def visualize_graph():
