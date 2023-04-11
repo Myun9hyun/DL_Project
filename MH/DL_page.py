@@ -239,6 +239,14 @@ if choice == "페이지1":
         # Create a Streamlit app
         def app():
             st.set_page_config(page_title="Computation Graph Visualization with TorchViz and Streamlit")
+            st.title("Computation Graph Visualization with TorchViz and Streamlit")
+            st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
+            st.write("Click the button below to visualize the graph.")
+
+            # Add a button to trigger the graph visualization
+            if st.button("Visualize Graph"):
+                visualize_graph()
+
 
             # Define a function to visualize the computation graph
             def visualize_graph():
