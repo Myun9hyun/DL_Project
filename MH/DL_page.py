@@ -194,6 +194,43 @@ if choice == "페이지1":
         '''
         ### 탭2
         '''
+        # import streamlit as st
+        # import torch
+        # from torchviz import make_dot
+        # from torchvision.models import vgg16
+
+        # # Define a function to visualize the computation graph
+        # def visualize_graph():
+        #     # Load the pre-trained VGG19 model
+
+        #     model = torchvision.models.vgg16(weights='imagenet')
+        #     model = torch.load("MH/model/vgg_weights.pth", map_location=device)
+
+        #     # Create a random input tensor
+        #     x = torch.randn(1, 3, 224, 224)
+
+        #     # Forward pass through the model
+        #     y = model(x)
+
+        #     # Visualize the computation graph
+        #     dot = make_dot(y, params=dict(model.named_parameters()))
+
+        #     # Display the graph using Streamlit's st.graphviz_chart() function
+        #     st.graphviz_chart(dot.source)
+
+        # # Create a Streamlit app
+        # def app():
+        #     st.title("Computation Graph Visualization with TorchViz and Streamlit")
+        #     st.write("This app visualizes the computation graph of a VGG19 model using TorchViz and Streamlit.")
+        #     st.write("Click the button below to visualize the graph.")
+
+        #     # Add a button to trigger the graph visualization
+        #     if st.button("Visualize Graph"):
+        #         visualize_graph()
+
+        # # Run the app
+        # if __name__ == '__main__':
+        #     app()
         import streamlit as st
         import torch
         from torchviz import make_dot
@@ -202,8 +239,6 @@ if choice == "페이지1":
         # Define a function to visualize the computation graph
         def visualize_graph():
             # Load the pre-trained VGG19 model
-
-            model = torchvision.models.vgg16(weights='imagenet')
             model = torch.load("MH/model/vgg_weights.pth", map_location=device)
 
             # Create a random input tensor
@@ -231,6 +266,7 @@ if choice == "페이지1":
         # Run the app
         if __name__ == '__main__':
             app()
+
 
 
     with tab3:
