@@ -43,7 +43,7 @@ file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
 destination = 'MH/model/vgg_weights_1000.pth' # 변경된 부분
 download_file_from_google_drive(file_id, destination)
 
-모델 불러오기
+# 모델 불러오기
 model = torch.load(destination)
 # 스트림릿 앱 구현
 st.title("딥러닝 모델 구현")
