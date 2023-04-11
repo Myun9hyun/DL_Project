@@ -328,7 +328,7 @@ elif choice == "페이지2":
 
     # 모델 다운로드 및 불러오기
     file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
-    destination = 'model.pth'
+    destination = 'MH/model/model.pth'
     download_file_from_google_drive(file_id, destination)
     model = torch.load(destination)
 
