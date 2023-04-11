@@ -185,70 +185,42 @@ if choice == "페이지1":
         '''
         ### 탭2
         '''
-        # 모델 다운로드
-        # def download_file_from_google_drive(id, destination):
-        #     URL = f"https://drive.google.com/u/0/uc?id={id}&export=download"
+        import streamlit as st
+        import torch
+        from torchviz import make_dot
+        from torchvision.models import vgg19
 
-        #     session = requests.Session()
+        # Define a function to visualize the computation graph
+        def visualize_graph():
+            # Load the pre-trained VGG19 model
+            model = vgg19(pretrained=True)
 
-        #     response = session.get(URL, params={'id': id}, stream=True)
-        #     token = get_confirm_token(response)
+            # Create a random input tensor
+            x = torch.randn(1, 3, 224, 224)
 
-        #     if token:
-        #         params = {'id': id, 'confirm': token}
-        #         response = session.get(URL, params=params, stream=True)
+            # Forward pass through the model
+            y = model(x)
 
-        #     save_response_content(response, destination)
+            # Visualize the computation graph
+            dot = make_dot(y, params=dict(model.named_parameters()))
 
-        # def get_confirm_token(response):
-        #     for key, value in response.cookies.items():
-        #         if key.startswith('download_warning'):
-        #             return value
-        #     return None
+            # Display the graph using Streamlit's st.graphviz_chart() function
+            st.graphviz_chart(dot.source)
 
-        # def save_response_content(response, destination):
-        #     CHUNK_SIZE = 32768
+        # Create a Streamlit app
+        def app():
+            st.title("Computation Graph Visualization with TorchViz and Streamlit")
+            st.write("This app visualizes the computation graph of a VGG19 model using TorchViz and Streamlit.")
+            st.write("Click the button below to visualize the graph.")
 
-        #     with open(destination, "wb") as f:
-        #         for chunk in response.iter_content(CHUNK_SIZE):
-        #             if chunk:
-        #                 f.write(chunk)
+            # Add a button to trigger the graph visualization
+            if st.button("Visualize Graph"):
+                visualize_graph()
 
-        # # 모델 다운로드
-        # file_id = '1lnhHrE5dIEdKwjsgtXZi8bPJz07GYAco'
-        # destination = 'vgg_weights.pth'
-        # download_file_from_google_drive(file_id, destination)
+        # Run the app
+        if __name__ == '__main__':
+            app()
 
-        # # 모델 불러오기
-        # model = torch.load(destination)
-
-        # # 스트림릿 앱 구현
-        # st.title("딥러닝 모델 구현")
-
-        # # 이미지 업로드
-        # uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
-
-        # if uploaded_file is not None:
-        #     image = Image.open(uploaded_file)
-        #     st.image(image, caption='업로드한 이미지', use_column_width=True)
-
-        #     # 이미지 전처리
-        #     transform = transforms.Compose([
-        #         transforms.Resize((224, 224)),
-        #         transforms.ToTensor(),
-        #         transforms.Normalize(
-        #             mean=[0.485, 0.456, 0.406],
-        #             std=[0.229, 0.224, 0.225]
-        #         )
-        #     ])
-        #     input_tensor = transform(image).unsqueeze(0)
-
-        #     # 모델 예측
-        #     with torch.no_grad():
-        #         model.eval()
-        #         output = model(input_tensor)
-        #         prediction = torch.argmax(output, dim=1).item()
-        #     st.write("예측 결과:", prediction)
 
     with tab3:
         tab3.subheader("탭3")
