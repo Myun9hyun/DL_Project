@@ -235,179 +235,179 @@ if choice == "페이지1":
 
     with tab3:
         tab3.subheader("탭3")
-        st.write()
-        '''
-        ### 탭3
-        '''
-        @st.cache(allow_output_mutation=True, suppress_st_warning=True)
-        def get_model():
-            # 모델 파일 ID와 Google Drive API 정보
-            file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
-            api_version = 'v3'
-            credentials = Credentials.from_authorized_user_info(info=None)
+        # st.write()
+#         '''
+#         ### 탭3
+#         '''
+#         @st.cache(allow_output_mutation=True, suppress_st_warning=True)
+#         def get_model():
+#             # 모델 파일 ID와 Google Drive API 정보
+#             file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
+#             api_version = 'v3'
+#             credentials = Credentials.from_authorized_user_info(info=None)
 
-            # Google Drive API를 사용해서 모델 파일 로드
-            service = build('drive', api_version, credentials=credentials)
-            request = service.files().get_media(fileId=file_id)
-            file = io.BytesIO(request.execute())
+#             # Google Drive API를 사용해서 모델 파일 로드
+#             service = build('drive', api_version, credentials=credentials)
+#             request = service.files().get_media(fileId=file_id)
+#             file = io.BytesIO(request.execute())
 
-            # 모델 파일 로드
-            model = torch.load(file, map_location=torch.device('cpu'))
+#             # 모델 파일 로드
+#             model = torch.load(file, map_location=torch.device('cpu'))
 
-            return model
-
-
-        model = get_model()
-
-        # 스트림릿 앱 구현
-        st.title("딥러닝 모델 구현")
-
-        # 이미지 업로드
-        uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
-
-        if uploaded_file is not None:
-            image = Image.open(uploaded_file)
-            st.image(image, caption='업로드한 이미지', use_column_width=True)
-
-            # 이미지 전처리
-            transform = transforms.Compose([
-                transforms.Resize((224, 224)),
-                transforms.ToTensor(),
-                transforms.Normalize(
-                    mean=[0.485, 0.456, 0.406],
-                    std=[0.229, 0.224, 0.225]
-                )
-            ])
-            input_tensor = transform(image).unsqueeze(0)
-
-            # 모델 예측
-            with torch.no_grad():
-                model.eval()
-                output = model(input_tensor)
-                prediction = torch.argmax(output, dim=1).item()
-            st.write("예측 결과:", prediction)
-elif choice == "페이지2":
-    st.subheader("페이지2")
-    # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
-    import torch
-    import requests
-    import streamlit as st
-    import torchvision
-    from PIL import Image
+#             return model
 
 
-    def download_file_from_google_drive(id, destination):
-        URL = f"https://drive.google.com/u/0/uc?id={id}&export=download"
+#         model = get_model()
 
-        session = requests.Session()
+#         # 스트림릿 앱 구현
+#         st.title("딥러닝 모델 구현")
 
-        response = session.get(URL, params={'id': id}, stream=True)
-        token = get_confirm_token(response)
+#         # 이미지 업로드
+#         uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
 
-        if token:
-            params = {'id': id, 'confirm': token}
-            response = session.get(URL, params=params, stream=True)
+#         if uploaded_file is not None:
+#             image = Image.open(uploaded_file)
+#             st.image(image, caption='업로드한 이미지', use_column_width=True)
 
-        save_response_content(response, destination)
+#             # 이미지 전처리
+#             transform = transforms.Compose([
+#                 transforms.Resize((224, 224)),
+#                 transforms.ToTensor(),
+#                 transforms.Normalize(
+#                     mean=[0.485, 0.456, 0.406],
+#                     std=[0.229, 0.224, 0.225]
+#                 )
+#             ])
+#             input_tensor = transform(image).unsqueeze(0)
+
+#             # 모델 예측
+#             with torch.no_grad():
+#                 model.eval()
+#                 output = model(input_tensor)
+#                 prediction = torch.argmax(output, dim=1).item()
+#             st.write("예측 결과:", prediction)
+# elif choice == "페이지2":
+#     st.subheader("페이지2")
+#     # CSS 스타일을 사용하여 배경 이미지를 설정합니다.
+#     import torch
+#     import requests
+#     import streamlit as st
+#     import torchvision
+#     from PIL import Image
 
 
-    def get_confirm_token(response):
-        for key, value in response.cookies.items():
-            if key.startswith('download_warning'):
-                return value
-        return None
+#     def download_file_from_google_drive(id, destination):
+#         URL = f"https://drive.google.com/u/0/uc?id={id}&export=download"
+
+#         session = requests.Session()
+
+#         response = session.get(URL, params={'id': id}, stream=True)
+#         token = get_confirm_token(response)
+
+#         if token:
+#             params = {'id': id, 'confirm': token}
+#             response = session.get(URL, params=params, stream=True)
+
+#         save_response_content(response, destination)
 
 
-    def save_response_content(response, destination):
-        CHUNK_SIZE = 32768
-
-        with open(destination, "wb") as f:
-            for chunk in response.iter_content(CHUNK_SIZE):
-                if chunk:
-                    f.write(chunk)
+#     def get_confirm_token(response):
+#         for key, value in response.cookies.items():
+#             if key.startswith('download_warning'):
+#                 return value
+#         return None
 
 
-    # 모델 다운로드 및 불러오기
-    file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
-    destination = 'MH/model/model.pth'
-    download_file_from_google_drive(file_id, destination)
-    model = torch.load(destination)
+#     def save_response_content(response, destination):
+#         CHUNK_SIZE = 32768
 
-    st.title("딥러닝 모델 구현")
+#         with open(destination, "wb") as f:
+#             for chunk in response.iter_content(CHUNK_SIZE):
+#                 if chunk:
+#                     f.write(chunk)
 
-    # 이미지 업로드
-    uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
 
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-        st.image(image, caption='업로드한 이미지', use_column_width=True)
+#     # 모델 다운로드 및 불러오기
+#     file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
+#     destination = 'MH/model/model.pth'
+#     download_file_from_google_drive(file_id, destination)
+#     model = torch.load(destination)
 
-        # 이미지 전처리
-        transform = torchvision.transforms.Compose([
-            torchvision.transforms.Resize((224, 224)),
-            torchvision.transforms.ToTensor(),
-            torchvision.transforms.Normalize(
-                mean=[0.485, 0.456, 0.406],
-                std=[0.229, 0.224, 0.225]
-            )
-        ])
-        input_tensor = transform(image).unsqueeze(0)
+#     st.title("딥러닝 모델 구현")
 
-        # 모델 예측
-        output = model(input_tensor)
+#     # 이미지 업로드
+#     uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
+
+#     if uploaded_file is not None:
+#         image = Image.open(uploaded_file)
+#         st.image(image, caption='업로드한 이미지', use_column_width=True)
+
+#         # 이미지 전처리
+#         transform = torchvision.transforms.Compose([
+#             torchvision.transforms.Resize((224, 224)),
+#             torchvision.transforms.ToTensor(),
+#             torchvision.transforms.Normalize(
+#                 mean=[0.485, 0.456, 0.406],
+#                 std=[0.229, 0.224, 0.225]
+#             )
+#         ])
+#         input_tensor = transform(image).unsqueeze(0)
+
+#         # 모델 예측
+#         output = model(input_tensor)
 
         
 
-elif choice == "페이지3":
-    st.subheader("페이지3")
+# elif choice == "페이지3":
+#     st.subheader("페이지3")
 
-    # 모델 다운로드
-    def download_file_from_google_drive(id, destination):
-        URL = f"https://drive.google.com/u/0/uc?id={id}&export=download"
-        session = requests.Session()
-        response = session.get(URL, params={'id': id}, stream=True)
-        token = get_confirm_token(response)
-        if token:
-            params = {'id': id, 'confirm': token}
-            response = session.get(URL, params=params, stream=True)
-        save_response_content(response, destination)
-    def get_confirm_token(response):
-        for key, value in response.cookies.items():
-            if key.startswith('download_warning'):
-                return value
-        return None
-    def save_response_content(response, destination):
-        CHUNK_SIZE = 32768
-        with open(destination, "wb") as f:
-            for chunk in response.iter_content(CHUNK_SIZE):
-                if chunk:
-                    f.write(chunk)
-    # 모델 다운로드
-    file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'  
-    destination = 'MH/model/vgg_weights_1000.pth'
-    download_file_from_google_drive(file_id, destination)
-    # 모델 불러오기
-    model = torch.load(destination)
-    # 스트림릿 앱 구현
-    st.title("딥러닝 모델 구현")
-    # 이미지 업로드
-    uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-        st.image(image, caption='업로드한 이미지', use_column_width=True)
-        # 이미지 전처리
-        transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(
-                mean=[0.485, 0.456, 0.406],
-                std=[0.229, 0.224, 0.225]
-            )
-        ])
-        input_tensor = transform(image).unsqueeze(0)
-        # 모델 예측
-        with torch.no_grad():
-            model.eval()
-            output = model(input_tensor)
-            prediction = torch.argmax(output, dim=1).item()
-        st.write("예측 결과:", prediction)
+#     # 모델 다운로드
+#     def download_file_from_google_drive(id, destination):
+#         URL = f"https://drive.google.com/u/0/uc?id={id}&export=download"
+#         session = requests.Session()
+#         response = session.get(URL, params={'id': id}, stream=True)
+#         token = get_confirm_token(response)
+#         if token:
+#             params = {'id': id, 'confirm': token}
+#             response = session.get(URL, params=params, stream=True)
+#         save_response_content(response, destination)
+#     def get_confirm_token(response):
+#         for key, value in response.cookies.items():
+#             if key.startswith('download_warning'):
+#                 return value
+#         return None
+#     def save_response_content(response, destination):
+#         CHUNK_SIZE = 32768
+#         with open(destination, "wb") as f:
+#             for chunk in response.iter_content(CHUNK_SIZE):
+#                 if chunk:
+#                     f.write(chunk)
+#     # 모델 다운로드
+#     file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'  
+#     destination = 'MH/model/vgg_weights_1000.pth'
+#     download_file_from_google_drive(file_id, destination)
+#     # 모델 불러오기
+#     model = torch.load(destination)
+#     # 스트림릿 앱 구현
+#     st.title("딥러닝 모델 구현")
+#     # 이미지 업로드
+#     uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
+#     if uploaded_file is not None:
+#         image = Image.open(uploaded_file)
+#         st.image(image, caption='업로드한 이미지', use_column_width=True)
+#         # 이미지 전처리
+#         transform = transforms.Compose([
+#             transforms.Resize((224, 224)),
+#             transforms.ToTensor(),
+#             transforms.Normalize(
+#                 mean=[0.485, 0.456, 0.406],
+#                 std=[0.229, 0.224, 0.225]
+#             )
+#         ])
+#         input_tensor = transform(image).unsqueeze(0)
+#         # 모델 예측
+#         with torch.no_grad():
+#             model.eval()
+#             output = model(input_tensor)
+#             prediction = torch.argmax(output, dim=1).item()
+#         st.write("예측 결과:", prediction)
