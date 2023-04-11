@@ -40,7 +40,7 @@ stroke_width = 2
 stroke_fill = (0, 0, 0)
 # x = (width - text_width) // 2
 # y = (height - text_height) // 2
-x = (width - text_width) // 2
+x = (width - text_width) // 2 - 20
 y = height - text_height - 20
 z = height - text_height - 100
 
