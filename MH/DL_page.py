@@ -16,7 +16,7 @@ import torch
 import torchvision
 
 
-st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", layout="wide")
+# st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", layout="wide")
 
 
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
