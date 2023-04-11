@@ -202,9 +202,13 @@ if choice == "페이지1":
         PATH = 'MH/model/vgg_weights.pth'
 
         # 모델 불러오기
-        model = torch.load(PATH)
+        model = torch.load(PATH, map_location=torch.device('cpu'))
 
         def visualize_graph():
+            # Load the pre-trained VGG16 model
+            model = vgg16(pretrained=True)
+                
+
             # Create a random input tensor
             x = torch.randn(1, 3, 224, 224)
 
@@ -217,6 +221,7 @@ if choice == "페이지1":
             return dot
 
         st.graphviz_chart(visualize_graph().source)
+
 
 
     with tab3:
