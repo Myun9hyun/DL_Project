@@ -202,7 +202,7 @@ if choice == "페이지1":
         # Define a function to visualize the computation graph
         def visualize_graph():
             # Load the pre-trained VGG19 model
-            model = vgg19(pretrained=True)
+            model = vgg16(pretrained=True)
             model = torch.load("MH/model/vgg_weights.pth", map_location=device)
 
             # Create a random input tensor
