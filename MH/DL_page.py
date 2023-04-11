@@ -153,7 +153,7 @@ if choice == "페이지1":
 
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
-            st.image(image, caption='업로드한 이미지', use_column_width=True)
+            st.image(image, caption='업로드한 이미지')
             
             # 이미지 전처리
             transform = transforms.Compose([
