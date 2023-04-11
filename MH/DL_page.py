@@ -29,35 +29,35 @@ image_NJS = "MH/image/deep.jpg"
 image = Image.open("MH/image/develop_jeans.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
-# draw = ImageDraw.Draw(image)
-# text_kor = "독산 개발진스"
-# text_eng = "Deep Learning"
-# font_kor = ImageFont.truetype("MH/font/NanumSquareNeo-eHv.ttf", 50)
-# font_eng = ImageFont.truetype("MH/font/ARIAL.TTF", 50)
-# text_width, text_height = draw.textsize(text_kor, font=font_kor)
+draw = ImageDraw.Draw(image)
+text_kor = "독산 개발진스"
+text_eng = "Deep Learning"
+font_kor = ImageFont.truetype("MH/font/NanumSquareNeo-eHv.ttf", 50)
+font_eng = ImageFont.truetype("MH/font/ARIAL.TTF", 50)
+text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
 
 
-# x = (width - text_width) // 2
-# x1 = (width - text_width) // 2 - 10
-# y = height - text_height - 20
-# z = height - text_height - 100
+x = (width - text_width) // 2
+x1 = (width - text_width) // 2 - 10
+y = height - text_height - 20
+z = height - text_height - 100
 
 
-# draw = ImageDraw.Draw(image)
+draw = ImageDraw.Draw(image)
 
-# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-# draw.text((x1 - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x1 + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x1, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x1, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x1, z), text_eng, font=font_eng, fill=(255, 255, 255))
+draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+draw.text((x1 - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x1 + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x1, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x1, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+draw.text((x1, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
-# st.image(image, use_column_width=True)
+st.image(image, use_column_width=True)
 
 
 
