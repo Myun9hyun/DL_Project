@@ -16,7 +16,7 @@ import torch
 import torchvision
 
 
-# st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", layout="wide")
+st.set_page_config(page_title="Deep Learning Project", page_icon=":minidisc:", layout="wide")
 
 
 # 이후 Streamlit 앱의 나머지 부분을 정의합니다.
@@ -38,7 +38,8 @@ text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
 stroke_width = 2
 stroke_fill = (0, 0, 0)
-
+# x = (width - text_width) // 2
+# y = (height - text_height) // 2
 x = (width - text_width) // 2
 x1 = (width - text_width) // 2 - 10
 y = height - text_height - 20
