@@ -241,7 +241,7 @@ if choice == "페이지1":
         @st.cache(allow_output_mutation=True, suppress_st_warning=True)
         def get_model():
             # 모델 파일 ID와 Google Drive API 정보
-            file_id = '1lnhHrE5dIEdKwjsgtXZi8bPJz07GYAco'
+            file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'
             api_version = 'v3'
             credentials = Credentials.from_authorized_user_info(info=None)
 
