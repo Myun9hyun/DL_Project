@@ -236,9 +236,11 @@ if choice == "페이지1":
         from torchviz import make_dot
         import torchvision.models as models
 
+        # Set the page configuration
+        st.set_page_config(page_title="Computation Graph Visualization with TorchViz and Streamlit")
+
         # Create a Streamlit app
         def app():
-            st.set_page_config(page_title="Computation Graph Visualization with TorchViz and Streamlit")
             st.title("Computation Graph Visualization with TorchViz and Streamlit")
             st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
             st.write("Click the button below to visualize the graph.")
@@ -266,14 +268,6 @@ if choice == "페이지1":
                 # Display the graph using Streamlit's st.graphviz_chart() function
                 st.graphviz_chart(dot.source)
 
-            # Display the app header
-            # st.title("Computation Graph Visualization with TorchViz and Streamlit")
-            # st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
-            # st.write("Click the button below to visualize the graph.")
-
-            # # Add a button to trigger the graph visualization
-            # if st.button("Visualize Graph"):
-            #     visualize_graph()
 
         # Run the app
         if __name__ == '__main__':
