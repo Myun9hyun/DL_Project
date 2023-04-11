@@ -195,28 +195,28 @@ if choice == "페이지1":
         ### 탭2
         '''
         import streamlit as st
-import torch
-from torchviz import make_dot
-from torchvision.models import vgg16
+        import torch
+        from torchviz import make_dot
+        from torchvision.models import vgg16
 
-PATH = 'MH/model/vgg_weights.pth'
+        PATH = 'MH/model/vgg_weights.pth'
 
-# 모델 불러오기
-model = torch.load(PATH)
+        # 모델 불러오기
+        model = torch.load(PATH)
 
-def visualize_graph():
-    # Create a random input tensor
-    x = torch.randn(1, 3, 224, 224)
+        def visualize_graph():
+            # Create a random input tensor
+            x = torch.randn(1, 3, 224, 224)
 
-    # Forward pass through the model
-    y = model(x)
+            # Forward pass through the model
+            y = model(x)
 
-    # Visualize the computation graph
-    dot = make_dot(y, params=dict(model.named_parameters()))
+            # Visualize the computation graph
+            dot = make_dot(y, params=dict(model.named_parameters()))
 
-    return dot
+            return dot
 
-st.graphviz_chart(visualize_graph().source)
+        st.graphviz_chart(visualize_graph().source)
 
 
     with tab3:
