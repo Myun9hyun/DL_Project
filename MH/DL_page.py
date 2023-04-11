@@ -239,44 +239,38 @@ if choice == "페이지1":
         # Set the page configuration
         st.set_page_config(page_title="Computation Graph Visualization with TorchViz and Streamlit")
 
-        st.title("Computation Graph Visualization with TorchViz and Streamlit")
-        st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
-        st.write("Click the button below to visualize the graph.")
-
+        def load_model():
+            # Load the pre-trained VGG16 model
+            model = models.vgg16(pretrained=True)
+            model.eval()
+            return model
 
         # Create a Streamlit app
-        def app():
-            # st.title("Computation Graph Visualization with TorchViz and Streamlit")
-            # st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
-            # st.write("Click the button below to visualize the graph.")
-
-            # Add a button to trigger the graph visualization
+        def app(model):
             if st.button("Visualize Graph"):
-                visualize_graph()
+                visualize_graph(model)
 
+        # Define a function to visualize the computation graph
+        def visualize_graph(model):
+            # Create a random input tensor
+            x = torch.randn(1, 3, 224, 224)
 
-            # Define a function to visualize the computation graph
-            def visualize_graph():
-                # Load the pre-trained VGG16 model
-                model = models.vgg16(pretrained=True)
-                model.eval()
+            # Forward pass through the model
+            y = model(x)
 
-                # Create a random input tensor
-                x = torch.randn(1, 3, 224, 224)
+            # Visualize the computation graph
+            dot = make_dot(y, params=dict(model.named_parameters()))
 
-                # Forward pass through the model
-                y = model(x)
+            # Display the graph using Streamlit's st.graphviz_chart() function
+            st.graphviz_chart(dot.source)
 
-                # Visualize the computation graph
-                dot = make_dot(y, params=dict(model.named_parameters()))
-
-                # Display the graph using Streamlit's st.graphviz_chart() function
-                st.graphviz_chart(dot.source)
-
+        # Load the pre-trained model outside of the Streamlit app
+        model = load_model()
 
         # Run the app
         if __name__ == '__main__':
-            app()
+            app(model)
+
 
 
 
