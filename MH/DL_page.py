@@ -375,7 +375,7 @@ elif choice == "페이지3":
                     f.write(chunk)
     # 모델 다운로드
     file_id = '1kLo4A1qbyn1D2aMRwkpLPp1ehHe1eVz3'  
-    destination = 'vgg_weights_1000.pth'
+    destination = 'Myun9hyun/DL_Project/MH/vgg_weights_1000.pth'
     download_file_from_google_drive(file_id, destination)
     # 모델 불러오기
     model = torch.load(destination)
