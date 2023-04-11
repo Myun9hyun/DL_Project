@@ -234,29 +234,33 @@ if choice == "페이지1":
         import streamlit as st
         import torch
         from torchviz import make_dot
-        from torchvision.models import vgg16
-
-        # Define a function to visualize the computation graph
-        def visualize_graph():
-            # Load the pre-trained VGG19 model
-            model = torch.load("MH/model/vgg_weights.pth", map_location=device)
-
-            # Create a random input tensor
-            x = torch.randn(1, 3, 224, 224)
-
-            # Forward pass through the model
-            y = model(x)
-
-            # Visualize the computation graph
-            dot = make_dot(y, params=dict(model.named_parameters()))
-
-            # Display the graph using Streamlit's st.graphviz_chart() function
-            st.graphviz_chart(dot.source)
+        import torchvision.models as models
 
         # Create a Streamlit app
         def app():
+            st.set_page_config(page_title="Computation Graph Visualization with TorchViz and Streamlit")
+
+            # Define a function to visualize the computation graph
+            def visualize_graph():
+                # Load the pre-trained VGG16 model
+                model = models.vgg16(pretrained=True)
+                model.eval()
+
+                # Create a random input tensor
+                x = torch.randn(1, 3, 224, 224)
+
+                # Forward pass through the model
+                y = model(x)
+
+                # Visualize the computation graph
+                dot = make_dot(y, params=dict(model.named_parameters()))
+
+                # Display the graph using Streamlit's st.graphviz_chart() function
+                st.graphviz_chart(dot.source)
+
+            # Display the app header
             st.title("Computation Graph Visualization with TorchViz and Streamlit")
-            st.write("This app visualizes the computation graph of a VGG19 model using TorchViz and Streamlit.")
+            st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
             st.write("Click the button below to visualize the graph.")
 
             # Add a button to trigger the graph visualization
@@ -266,6 +270,7 @@ if choice == "페이지1":
         # Run the app
         if __name__ == '__main__':
             app()
+
 
 
 
