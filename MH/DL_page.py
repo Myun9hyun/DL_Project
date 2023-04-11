@@ -359,11 +359,6 @@ elif choice == "페이지2":
 
 elif choice == "페이지3":
     st.subheader("페이지3")
-    from google.colab import auth
-    auth.authenticate_user()
-    from google.auth import credentials
-
-    creds = credentials.UserAccessTokenCredentials(access_token)
 
     # 모델 다운로드
     def download_file_from_google_drive(id, destination):
