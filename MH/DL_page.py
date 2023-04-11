@@ -199,7 +199,7 @@ if choice == "페이지1":
         from torchviz import make_dot
         from torchvision.models import vgg16
 
-        PATH = 'MH/model.vgg_weights.pth'
+        PATH = 'MH/model/vgg_weights.pth'
 
         # 모델 불러오기
         model = torch.load(PATH)
