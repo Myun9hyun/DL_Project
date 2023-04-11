@@ -267,13 +267,13 @@ if choice == "페이지1":
                 st.graphviz_chart(dot.source)
 
             # Display the app header
-            st.title("Computation Graph Visualization with TorchViz and Streamlit")
-            st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
-            st.write("Click the button below to visualize the graph.")
+            # st.title("Computation Graph Visualization with TorchViz and Streamlit")
+            # st.write("This app visualizes the computation graph of a VGG16 model using TorchViz and Streamlit.")
+            # st.write("Click the button below to visualize the graph.")
 
-            # Add a button to trigger the graph visualization
-            if st.button("Visualize Graph"):
-                visualize_graph()
+            # # Add a button to trigger the graph visualization
+            # if st.button("Visualize Graph"):
+            #     visualize_graph()
 
         # Run the app
         if __name__ == '__main__':
