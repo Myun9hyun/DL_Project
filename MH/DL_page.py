@@ -246,9 +246,16 @@ if choice == "페이지1":
             return model
 
         # Create a Streamlit app
-        def app(model):
+        # Create a Streamlit app
+        def app():
+            # Load the pre-trained model outside of the Streamlit app
+            model = load_model()
+
             if st.button("Visualize Graph"):
                 visualize_graph(model)
+
+
+
 
         # Define a function to visualize the computation graph
         def visualize_graph(model):
@@ -268,9 +275,9 @@ if choice == "페이지1":
         model = load_model()
 
         # Run the app
+        # Run the app
         if __name__ == '__main__':
-            app(model)
-
+            app()
 
 
 
