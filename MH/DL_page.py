@@ -29,38 +29,35 @@ image_NJS = "MH/image/deep.jpg"
 image = Image.open("MH/image/develop_jeans.jpg")
 width, height = image.size
 # 이미지에 텍스트 추가
-draw = ImageDraw.Draw(image)
-text_kor = "독산 개발진스"
-text_eng = "Deep Learning"
-font_kor = ImageFont.truetype("MH/font/NanumSquareNeo-eHv.ttf", 50)
-font_eng = ImageFont.truetype("MH/font/ARIAL.TTF", 50)
-text_width, text_height = draw.textsize(text_kor, font=font_kor)
+# draw = ImageDraw.Draw(image)
+# text_kor = "독산 개발진스"
+# text_eng = "Deep Learning"
+# font_kor = ImageFont.truetype("MH/font/NanumSquareNeo-eHv.ttf", 50)
+# font_eng = ImageFont.truetype("MH/font/ARIAL.TTF", 50)
+# text_width, text_height = draw.textsize(text_kor, font=font_kor)
 
-stroke_width = 2
-stroke_fill = (0, 0, 0)
+
+
 # x = (width - text_width) // 2
-# y = (height - text_height) // 2
-x = (width - text_width) // 2
-x1 = (width - text_width) // 2 - 10
-y = height - text_height - 20
-z = height - text_height - 100
+# x1 = (width - text_width) // 2 - 10
+# y = height - text_height - 20
+# z = height - text_height - 100
 
-# 이미지에 텍스트 추가
-draw = ImageDraw.Draw(image)
-# draw.text((x, y), text_kor, font=font_kor, fill=(0, 0, 0),outline=outline_color, width=outline_width)
-# draw.text((x, z), text_eng, font=font_eng, fill=(0, 0, 0), outline=outline_color, width=outline_width)
-draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-draw.text((x1 - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x1 + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x1, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x1, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x1, z), text_eng, font=font_eng, fill=(255, 255, 255))
-# streamlit에 이미지 표시
-st.image(image, use_column_width=True)
+
+# draw = ImageDraw.Draw(image)
+
+# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+# draw.text((x1 - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x1 + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x1, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x1, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x1, z), text_eng, font=font_eng, fill=(255, 255, 255))
+
+# st.image(image, use_column_width=True)
 
 
 
