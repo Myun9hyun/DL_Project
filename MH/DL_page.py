@@ -149,7 +149,7 @@ if choice == "페이지1":
         ### 자료 설명
         > *  원하는 이미지를 삽입하면, 미리 학습해둔 Pytorch 파일을 통해 고흐의 '별이 빛나는 밤'의 느낌으로 style transfer시켜준다. 
         '''
-        st.write("### 다음은 이미지 예시입니다.")
+        st.write("### 다음은 이미지 변환 예시입니다.")
         col1, col2, col3 = st.columns(3)  
         with col1:
             st.write("**변환하고자 하는 이미지**")
@@ -162,9 +162,6 @@ if choice == "페이지1":
             st.image(image_convert, use_column_width=True)
         
 
-
-
-                
         # 모델 로드
             # model = torch.load(destination, map_location=torch.device('cpu'))
     with tab2:
