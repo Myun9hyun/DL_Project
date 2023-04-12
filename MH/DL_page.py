@@ -127,7 +127,7 @@ if choice == "홈페이지":
             | 서상원 | 데이터 모델링 | 딥러닝 모델링 |[![GitHub](https://badgen.net/badge/icon/github%20tkd8973?icon=github&label)](https://github.com/tkd8973)|
             | 조성훈 | 데이터 전처리 | 딥러닝 모델링 |[![GitHub](https://badgen.net/badge/icon/github%20chohoon901?icon=github&label)](https://github.com/chohoon901)|
             | 김명현 | 데이터 시각화 | Streamlit 구현 |[![GitHub](https://badgen.net/badge/icon/github%20Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
-            | 강성욱 | 데이터 소스 조사 | 딥러닝 모델링 |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
+            | 강성욱 | 데이터 조사 | 딥러닝 모델링 |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
             '''
         with col2:
             st.write("**몰?루 ai실사**")
