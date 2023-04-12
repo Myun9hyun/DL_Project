@@ -67,8 +67,8 @@ st.image(image, use_column_width=True)
 
 
 with st.sidebar:
-    choice = option_menu("Menu", ["페이지1", "페이지2", "페이지3"],
-                         icons=['house', 'kanban', 'bi bi-robot'],
+    choice = option_menu("Menu", ["페이지1", "페이지2"],
+                         icons=['house', 'kanban',],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "4!important", "background-color": "#fafafa"},
@@ -158,7 +158,10 @@ if choice == "페이지1":
 
         '''
         ### 자료 설명
-        > *  원하는 이미지를 삽입하면, 미리 학습해둔 Pytorch 파일을 통해 고흐의 '별이 빛나는 밤'의 느낌으로 style transfer시켜준다. 
+        > * 이미지를 두개를 선택합니다.
+        > * 첫번째 이미지는 변환이 되는 이미지이고
+        > * 두번째 이미지는 첫번째 이미지를 두번째 이미지의 느낌과 그림체로 변환을 시켜줍니다.
+        > * 딥러닝을 거친 후 이미지가 출력이 됩니다.
         '''
         st.write("### 다음은 이미지 변환 예시입니다.")
         col1, col2, col3 = st.columns(3)  
@@ -195,9 +198,6 @@ if choice == "페이지1":
         
 elif choice == "페이지2":
     st.subheader("페이지2")
-    
 
-elif choice == "페이지3":
-    st.subheader("페이지3")
 
     
