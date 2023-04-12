@@ -163,7 +163,7 @@ if choice == "홈페이지":
         # 모델 로드
             # model = torch.load(destination, map_location=torch.device('cpu'))
     with tab2:
-        tab2.subheader("📉Graph")
+        tab2.subheader("📉Graph tab")
         image_graph = "MH/image/vgg19_graph.png"
         st.write()
         '''
@@ -172,10 +172,10 @@ if choice == "홈페이지":
         st.image(image_graph, use_column_width=True)
 
     with tab3:
-        tab2.subheader("🔗Link tab")
+        tab3.subheader("🔗Link tab")
         st.write()
         '''
-        ### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
+        #### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
         [![Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1Vwi45lqrq8Cys2z-2idackArSV2PIY4H?usp=sharing)
         
         '''
