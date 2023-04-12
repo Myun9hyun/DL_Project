@@ -114,9 +114,6 @@ if choice == "페이지1":
         '''
         **⬆️위의 탭에 있는 메뉴를 클릭해 선택하신 항목을 볼 수 있습니다!⬆️**
         '''
-        # st.image("https://cdn.pixabay.com/photo/2020/09/02/04/06/man-5537262_960_720.png", width=700)
-        # st.image(image_molu, caption='GIF', width=200)
-        # st.image(image_molu_ai, width=200)
         col1, col2 = st.columns(2)
         with col1:
             st.write("**몰?루**")
@@ -135,22 +132,8 @@ if choice == "페이지1":
         with col2:
             st.write("**몰?루 ai실사**")
             st.image(image_molu_ai, use_column_width=True)
-        # '''
-        # ---
 
-        # ### Team 💪
-
-        # | 이름 | 역할 분담 | 그외 역할 | GitHub Profile |
-        # | :---: | :---: | :---: | :--- |
-        # | 서상원 | 데이터 모델링 |  |[![GitHub](https://badgen.net/badge/icon/github%20tkd8973?icon=github&label)](https://github.com/tkd8973)|
-        # | 조성훈 | 데이터 전처리 |  |[![GitHub](https://badgen.net/badge/icon/github%20chohoon901?icon=github&label)](https://github.com/chohoon901)|
-        # | 김명현 | 데이터 시각화 |  |[![GitHub](https://badgen.net/badge/icon/github%20Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
-        # | 강성욱 | 데이터 소스 조사 |  |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
-        # ---
-        
-        # '''
     with tab1:
-        tab1.subheader("탭1")
         tab1.write()
         image_insert = "MH/image/sight.jpg"
         image_style = "MH/image/starrynight.jpg"
@@ -179,7 +162,6 @@ if choice == "페이지1":
         # 모델 로드
             # model = torch.load(destination, map_location=torch.device('cpu'))
     with tab2:
-        tab2.subheader("탭2")
         image_graph = "MH/image/vgg19_graph.png"
         st.write()
         '''
@@ -188,7 +170,6 @@ if choice == "페이지1":
         st.image(image_graph, use_column_width=True)
 
     with tab3:
-        tab3.subheader("탭3")
         st.write()
         '''
         ### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
