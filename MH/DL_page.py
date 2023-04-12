@@ -169,10 +169,8 @@ if choice == "페이지1":
         st.write()
         '''
         ### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
-        '''
-        
         ![https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252](https://colab.research.google.com/drive/1pWstcDuEqPFxV_ZLhNyQtzI9MRanz7Pv?usp=sharing)
-
+        '''
 
     with tab3:
         tab3.subheader("탭3")
