@@ -147,7 +147,7 @@ if choice == "홈페이지":
         > * 두번째 이미지는 첫번째 이미지를 두번째 이미지의 느낌과 그림체로 변환을 시켜줍니다.
         > * 딥러닝을 거친 후 이미지가 출력이 됩니다.
         '''
-        st.write("### 다음은 이미지 변환 예시입니다.")
+        st.write("#### 이미지 변환 예시")
         col1, col2, col3 = st.columns(3)  
         with col1:
             st.write("**변환하고자 하는 이미지**")
@@ -175,7 +175,7 @@ if choice == "홈페이지":
         tab3.subheader("🔗Link tab")
         st.write()
         '''
-        #### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
+        #### Colab 링크
         [![Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1Vwi45lqrq8Cys2z-2idackArSV2PIY4H?usp=sharing)
         
         '''
