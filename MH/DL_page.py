@@ -143,45 +143,10 @@ if choice == "페이지1":
         tab1.write()
         '''
         ### 자료 설명
+        #### 원하는 이미지를 삽입하면, 미리 학습해둔 Pytorch 파일을 통해 고흐의 '별이 빛나는 밤의' 느낌으로 style transfer시켜준다
+        ### 
         '''
-        # import streamlit as st
-        # import torch
-        # import torchvision.transforms as transforms
-        # from PIL import Image
-
-        # st.title("딥러닝 모델 구현")
-        # device = torch.device("cpu")  # CPU에서 실행할 경우
-        # model = torch.load("MH/model/vgg_weights.pth", map_location=device)
-
-        # # 모델 구조 출력
-        # st.write("### 모델 구조")
-        # # st.write(model)
-
-        # # 이미지 업로드
-        # uploaded_file = st.file_uploader("이미지 업로드", type=["png", "jpg", "jpeg"])
-
-        # if uploaded_file is not None:
-        #     image = Image.open(uploaded_file)
-        #     st.image(image, caption='업로드한 이미지', use_column_width=True)
-            
-        #     # 이미지 전처리
-        #     transform = transforms.Compose([
-        #         transforms.Resize((224, 224)),
-        #         transforms.ToTensor(),
-        #         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-        #     ])
-        #     image = transform(image).unsqueeze(0)
-
-        #     # 모델 예측
-        #     with torch.no_grad():
-        #         output = model(image)
-        #     probabilities = torch.nn.functional.softmax(output[0], dim=0).numpy()
-
-        #     # 예측 결과 출력
-        #     labels = ['class1', 'class2', 'class3'] # 분류 클래스 라벨
-        #     st.write("### 예측 결과")
-        #     for i in range(len(labels)):
-        #         st.write(f"{labels[i]}: {probabilities[i]*100:.2f}%")
+        
 
 
 
