@@ -141,11 +141,25 @@ if choice == "페이지1":
     with tab1:
         tab1.subheader("탭1")
         tab1.write()
+        image_insert = "MH/image/sight.jpg"
+        image_style = "MH/image/starrynight.jpg"
+        image_convert = "MH/image/converted_small.jpg"
+
         '''
         ### 자료 설명
-        > *  원하는 이미지를 삽입하면, 미리 학습해둔 Pytorch 파일을 통해 고흐의 '별이 빛나는 밤의' 느낌으로 style transfer시켜준다
-        ### 
+        > *  원하는 이미지를 삽입하면, 미리 학습해둔 Pytorch 파일을 통해 고흐의 '별이 빛나는 밤'의 느낌으로 style transfer시켜준다. 
         '''
+        st.write("다음은 이미지 예시입니다.")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.write("**변환하고자 하는 이미지**")
+            st.image(image_insert, use_column_width=True)
+        with col2:
+            st.write("**적용되는 style 이미지**")
+            st.image(image_style, use_column_width=True)
+        with col3:
+            st.write("**변환되어 출력된 이미지**")
+            st.image(image_convert, use_column_width=True)
         
 
 
