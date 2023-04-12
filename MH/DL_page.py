@@ -129,12 +129,12 @@ if choice == "페이지1":
 
         ### Team 💪
 
-        | 이름 | 역할 분담 | 딥러닝모델링 | GitHub Profile |
+        | 이름 | 역할 분담 | 그외 역할 | GitHub Profile |
         | :---: | :---: | :---: | :--- |
-        | 서상원 |  |  |[![GitHub](https://badgen.net/badge/icon/github%20tkd8973?icon=github&label)](https://github.com/tkd8973)|
-        | 조성훈 |  |  |[![GitHub](https://badgen.net/badge/icon/github%20chohoon901?icon=github&label)](https://github.com/chohoon901)|
-        | 김명현 |  |  |[![GitHub](https://badgen.net/badge/icon/github%20Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
-        | 강성욱 |  |  |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
+        | 서상원 | 데이터 모델링 |  |[![GitHub](https://badgen.net/badge/icon/github%20tkd8973?icon=github&label)](https://github.com/tkd8973)|
+        | 조성훈 | 데이터 전처리 |  |[![GitHub](https://badgen.net/badge/icon/github%20chohoon901?icon=github&label)](https://github.com/chohoon901)|
+        | 김명현 | 데이터 시각화 |  |[![GitHub](https://badgen.net/badge/icon/github%20Myun9hyun?icon=github&label)](https://github.com/Myun9hyun)|
+        | 강성욱 | 데이터 소스 조사 |  |[![GitHub](https://badgen.net/badge/icon/github%20JoySoon?icon=github&label)](https://github.com/JoySoon)|
         ---
         
         '''
