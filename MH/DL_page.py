@@ -101,7 +101,7 @@ with st.sidebar:
     # st.write("💪Team Notion")
     # st.markdown('<a href="https://www.notion.so/DL_PROJECT-82b3fdfbde2e4937b0f9463fce66d056"><img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"></a>', unsafe_allow_html=True)
 
-if choice == "페이지1":
+if choice == "홈페이지":
     
     tab0, tab1, tab2, tab3 = st.tabs(["🏠 Main", "🔎Explain", "📉Graph", "🔗Link"])
     image_molu = "MH/image/molu.gif"
