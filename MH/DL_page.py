@@ -67,8 +67,8 @@ st.image(image, use_column_width=True)
 
 
 with st.sidebar:
-    choice = option_menu("Menu", ["페이지1", "페이지2"],
-                         icons=['house', 'kanban',],
+    choice = option_menu("Menu", ["홈페이지"],
+                         icons=['house'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "4!important", "background-color": "#fafafa"},
@@ -103,7 +103,7 @@ with st.sidebar:
 
 if choice == "페이지1":
     
-    tab0, tab1, tab2, tab3 = st.tabs(["🏠 Main", "tab1", "tab2", "tab3"])
+    tab0, tab1, tab2, tab3 = st.tabs(["🏠 Main", "🔎Explain", "📉Graph", "🔗Link"])
     image_molu = "MH/image/molu.gif"
     image_molu_ai = "MH/image/molu_ai.jpg"
 
