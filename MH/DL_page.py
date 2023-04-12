@@ -134,6 +134,7 @@ if choice == "홈페이지":
             st.image(image_molu_ai, use_column_width=True)
 
     with tab1:
+        tab1.subheader("🔎Explain tab")
         tab1.write()
         image_insert = "MH/image/sight.jpg"
         image_style = "MH/image/starrynight.jpg"
@@ -162,14 +163,16 @@ if choice == "홈페이지":
         # 모델 로드
             # model = torch.load(destination, map_location=torch.device('cpu'))
     with tab2:
+        tab2.subheader("📉Graph")
         image_graph = "MH/image/vgg19_graph.png"
         st.write()
         '''
-        ### 다음의 과정을 거쳐 학습하는 모델입니다.
+        #### 다음의 과정을 거쳐 학습하는 모델입니다.
         '''
         st.image(image_graph, use_column_width=True)
 
     with tab3:
+        tab2.subheader("🔗Link tab")
         st.write()
         '''
         ### 다음은 딥러닝 실제 구현할 수 있는 Colab 링크입니다.
