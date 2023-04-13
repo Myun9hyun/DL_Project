@@ -176,7 +176,7 @@ if choice == "홈페이지":
         st.write()
         '''
         #### Colab 링크
-        [![Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1GfPhvHUTPqP85w545tORp6fLhmGkKYZa?usp=sharing)
+        [![Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1Vwi45lqrq8Cys2z-2idackArSV2PIY4H?usp=sharing#scrollTo=ECxFhyMTGB2r)
         
         '''
         
